@@ -149,6 +149,32 @@ EOF;
 
 EOF;
         $expected[] = mb_convert_encoding($csv, 'Shift-JIS');
+
+        // jpn: forceEnclosureをfalseにしてShift-JISで出力 (Excel)
+        $data[] = array(
+            array(
+                'id' => 1,
+                'title' => 'Title',
+                'body' => 'Hello World',
+                'created' => '2014-11-28 00:00:00',
+            ),
+            array(
+                'id' => 2,
+                'title' => 'タイトル',
+                'body' => 'こんにちは"世界"',
+                'created' => '2014-11-29 00:00:00',
+            ),
+        );
+        $options[] = array(
+            'csvEncoding' => 'Shift-JIS',
+            'forceEnclose' => false
+        );
+        $csv = <<< EOF
+1,Title,Hello World,2014-11-28 00:00:00
+2,タイトル,"こんにちは""世界""",2014-11-29 00:00:00
+
+EOF;
+        $expected[] = mb_convert_encoding($csv, 'Shift-JIS');
         
         $d = array();
         for($i = 0; $i < count($data); ++$i) {
