@@ -1,6 +1,6 @@
 # GinqCsv
 
-CSV generator for CSV
+CSV generator for Ginq
 
 ## Install
 
