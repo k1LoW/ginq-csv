@@ -150,7 +150,7 @@ EOF;
 EOF;
         $expected[] = mb_convert_encoding($csv, 'SJIS-Win');
 
-        // jpn: forceEnclosureをfalseにしてSJIS-Winで出力 (Excel)
+        // jpn: forceEncloseをfalseにしてSJIS-Winで出力 (Excel)
         $data[] = array(
             array(
                 'id' => 1,
