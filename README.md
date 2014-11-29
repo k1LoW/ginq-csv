@@ -2,6 +2,20 @@
 
 CSV generator for CSV
 
+## Install
+
+composer.json:
+
+```json
+{
+    "require": {
+        "k1low/ginq-csv": "dev-master"
+    }
+}
+```
+
+## Usage
+
 ```php
 <?php
 
