@@ -1,0 +1,23 @@
+{
+    "name": "k1low/ginq-csv",
+    "description": "CSV generator for Ginq",
+    "keywords": ["ginq", "csv"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ken'ichiro Oyama",
+            "homepage": "https://github.com/k1LoW",
+            "role": "Author"
+        }
+    ],
+    "require": {
+        "php": ">= 5.3.3",
+        "ginq/ginq": "~0.2.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.1.0"
+    },
+    "autoload": {
+        "psr-4": { "Ginq\\": "src/" }
+    }
+}
