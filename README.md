@@ -39,5 +39,11 @@ $data = array(
           ),
         );
 $result = Ginq::from($data)
-            ->toCsv($options);
+    ->toCsv($options);
+
+// output string
+// "1","Title","Hello World","2014-11-28 00:00:00"
+// "2","タイトル","こんにちは世界","2014-11-29 00:00:00"
+
+
 ```
