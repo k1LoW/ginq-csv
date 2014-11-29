@@ -11,7 +11,8 @@ class GinqCsvTest extends \PHPUnit_Framework_TestCase
      * setUp
      *
      */
-    public function setUp(){
+    public function setUp()
+    {
         Ginq::register('Ginq\GinqCsv');
     }
     
@@ -19,7 +20,8 @@ class GinqCsvTest extends \PHPUnit_Framework_TestCase
      * test_registerGinqCsv
      *
      */
-    public function test_registerGinqCsv(){
+    public function test_registerGinqCsv()
+    {
         $functions = Ginq::listRegisteredFunctions();
         $expected = array('toCsv' => array('Ginq\GinqCsv', 'toCsv'));
         $this->assertEquals($functions, $expected);
@@ -29,7 +31,8 @@ class GinqCsvTest extends \PHPUnit_Framework_TestCase
      * test_toCsv
      * @dataProvider csvCaseProvider
      */
-    public function test_toCsv($data, $options, $expected){
+    public function test_toCsv($data, $options, $expected)
+    {
         $result = Ginq::from($data)
             ->toCsv($options);
         $this->assertEquals($result, $expected);
@@ -41,7 +44,8 @@ class GinqCsvTest extends \PHPUnit_Framework_TestCase
      *
      * @dataProvider csvCaseProvider
      */
-    public function test_toCsvForce($data, $options, $expected){
+    public function test_toCsvForce($data, $options, $expected)
+    {
         $options = array_merge($options, array('forceOutput' => true));
         ob_start();
         Ginq::from($data)
@@ -56,7 +60,8 @@ class GinqCsvTest extends \PHPUnit_Framework_TestCase
      * csvCaseProvider
      *
      */
-    public function csvCaseProvider(){
+    public function csvCaseProvider()
+    {
 
         // jpn: デフォルト出力
         $data[] = array(

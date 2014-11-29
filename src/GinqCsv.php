@@ -2,7 +2,8 @@
 namespace Ginq;
 
 class GinqCsv
-{    
+{
+    
     public static $options = array(
         'csvEncoding' => 'UTF-8',
         'delimiter' => ',',
