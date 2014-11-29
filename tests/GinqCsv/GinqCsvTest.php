@@ -127,7 +127,7 @@ EOF;
 EOF;
         $expected[] = $csv;
         
-        // jpn: Shift-JISで出力
+        // jpn: SJIS-Winで出力
         $data[] = array(
             array(
                 'id' => 1,
@@ -142,15 +142,15 @@ EOF;
                 'created' => '2014-11-29 00:00:00',
             ),
         );
-        $options[] = array('csvEncoding' => 'Shift-JIS');
+        $options[] = array('csvEncoding' => 'SJIS-Win');
         $csv = <<< EOF
 "1","Title","Hello World","2014-11-28 00:00:00"
 "2","タイトル","こんにちは世界","2014-11-29 00:00:00"
 
 EOF;
-        $expected[] = mb_convert_encoding($csv, 'Shift-JIS');
+        $expected[] = mb_convert_encoding($csv, 'SJIS-Win');
 
-        // jpn: forceEnclosureをfalseにしてShift-JISで出力 (Excel)
+        // jpn: forceEnclosureをfalseにしてSJIS-Winで出力 (Excel)
         $data[] = array(
             array(
                 'id' => 1,
@@ -166,7 +166,7 @@ EOF;
             ),
         );
         $options[] = array(
-            'csvEncoding' => 'Shift-JIS',
+            'csvEncoding' => 'SJIS-Win',
             'forceEnclose' => false
         );
         $csv = <<< EOF
@@ -174,7 +174,7 @@ EOF;
 2,タイトル,"こんにちは""世界""",2014-11-29 00:00:00
 
 EOF;
-        $expected[] = mb_convert_encoding($csv, 'Shift-JIS');
+        $expected[] = mb_convert_encoding($csv, 'SJIS-Win');
         
         $d = array();
         for($i = 0; $i < count($data); ++$i) {
