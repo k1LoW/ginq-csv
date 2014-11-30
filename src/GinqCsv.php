@@ -30,7 +30,7 @@ class GinqCsv
             foreach ($ginq->getIterator() as $line) {
                 $line = array_map(function($v) use ($e, $fe, $nc) {
                     $v = preg_replace('/' . $e . '/', $e . $e, $v);
-                    if ($fe || preg_match('/' . $e . '/', $v) || preg_match('/' . $nc . '/', $v)) {
+                    if ($fe || preg_match('/' . $e . '/', $v) || preg_match('/[\r\n]/', $v)) {
                         return $e . $v . $e;
                     }
                     return $v;
@@ -47,7 +47,7 @@ class GinqCsv
             foreach ($ginq->getIterator() as $line) {
                 $line = array_map(function($v) use ($e, $fe, $nc) {
                     $v = preg_replace('/' . $e . '/', $e . $e, $v);
-                    if ($fe || preg_match('/' . $e . '/', $v) || preg_match('/' . $nc . '/', $v)) {
+                    if ($fe || preg_match('/' . $e . '/', $v) || preg_match('/[\r\n]/', $v)) {
                         return $e . $v . $e;
                     }
                     return $v;
