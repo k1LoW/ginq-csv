@@ -131,6 +131,25 @@ EOF;
 
 EOF;
         $expected[] = $csv;
+
+       // jpn: newlineCharを変更
+        $data[] = array(
+            array(
+                'id' => 1,
+                'title' => 'Title',
+                'body' => 'Hello World',
+                'created' => '2014-11-28 00:00:00',
+            ),
+            array(
+                'id' => 2,
+                'title' => 'タイトル',
+                'body' => 'こんにちは世界',
+                'created' => '2014-11-29 00:00:00',
+            ),
+        );
+        $options[] = array('newlineChar' => "\r\n");
+        $csv = "\"1\",\"Title\",\"Hello World\",\"2014-11-28 00:00:00\"\r\n\"2\",\"タイトル\",\"こんにちは世界\",\"2014-11-29 00:00:00\"\r\n";
+        $expected[] = $csv;
         
         // jpn: SJIS-Winで出力
         $data[] = array(
@@ -155,12 +174,12 @@ EOF;
 EOF;
         $expected[] = mb_convert_encoding($csv, 'SJIS-Win');
 
-        // jpn: forceEncloseをfalseにしてSJIS-Winで出力 (Excel)
+        // jpn: forceEncloseをfalseにしてSJIS-Winで出力 (会場、文字列内にenclosure)
         $data[] = array(
             array(
                 'id' => 1,
                 'title' => 'Title',
-                'body' => 'Hello World',
+                'body' => "Hello\nWorld",
                 'created' => '2014-11-28 00:00:00',
             ),
             array(
@@ -175,7 +194,8 @@ EOF;
             'forceEnclose' => false
         );
         $csv = <<< EOF
-1,Title,Hello World,2014-11-28 00:00:00
+1,Title,"Hello
+World",2014-11-28 00:00:00
 2,タイトル,"こんにちは""世界""",2014-11-29 00:00:00
 
 EOF;

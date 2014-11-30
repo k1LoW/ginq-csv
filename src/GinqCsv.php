@@ -28,9 +28,9 @@ class GinqCsv
         if ($options['forceOutput']) {
             $fp = fopen('php://output','w');
             foreach ($ginq->getIterator() as $line) {
-                $line = array_map(function($v) use ($e, $fe) {
+                $line = array_map(function($v) use ($e, $fe, $nc) {
                     $v = preg_replace('/' . $e . '/', $e . $e, $v);
-                    if ($fe || preg_match('/' . $e . '/', $v)) {
+                    if ($fe || preg_match('/' . $e . '/', $v) || preg_match('/' . $nc . '/', $v)) {
                         return $e . $v . $e;
                     }
                     return $v;
@@ -45,9 +45,9 @@ class GinqCsv
         } else {
             $out = '';
             foreach ($ginq->getIterator() as $line) {
-                $line = array_map(function($v) use ($e, $fe) {
+                $line = array_map(function($v) use ($e, $fe, $nc) {
                     $v = preg_replace('/' . $e . '/', $e . $e, $v);
-                    if ($fe || preg_match('/' . $e . '/', $v)) {
+                    if ($fe || preg_match('/' . $e . '/', $v) || preg_match('/' . $nc . '/', $v)) {
                         return $e . $v . $e;
                     }
                     return $v;
