@@ -174,7 +174,7 @@ EOF;
 EOF;
         $expected[] = mb_convert_encoding($csv, 'SJIS-Win');
 
-        // jpn: forceEncloseをfalseにしてSJIS-Winで出力 (会場、文字列内にenclosure)
+        // jpn: forceEncloseをfalseにしてSJIS-Winで出力 (会場、文字列内にenclosure, 文字列内にdelimiter)
         $data[] = array(
             array(
                 'id' => 1,
@@ -184,7 +184,7 @@ EOF;
             ),
             array(
                 'id' => 2,
-                'title' => 'タイトル',
+                'title' => 'タイトル,',
                 'body' => 'こんにちは"世界"',
                 'created' => '2014-11-29 00:00:00',
             ),
@@ -196,7 +196,7 @@ EOF;
         $csv = <<< EOF
 1,Title,"Hello
 World",2014-11-28 00:00:00
-2,タイトル,"こんにちは""世界""",2014-11-29 00:00:00
+2,"タイトル,","こんにちは""世界""",2014-11-29 00:00:00
 
 EOF;
         $expected[] = mb_convert_encoding($csv, 'SJIS-Win');
