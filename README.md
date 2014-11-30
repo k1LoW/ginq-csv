@@ -9,7 +9,7 @@ composer.json:
 ```json
 {
     "require": {
-        "k1low/ginq-csv": "~0.9.3"
+        "k1low/ginq-csv": "~0.9.4"
     }
 }
 ```
