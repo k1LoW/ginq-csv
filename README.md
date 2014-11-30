@@ -1,4 +1,4 @@
-# GinqCsv
+# GinqCsv [![Build Status](https://travis-ci.org/k1LoW/ginq-csv.svg?branch=master)](https://travis-ci.org/k1LoW/ginq-csv)
 
 CSV generator for Ginq
 
